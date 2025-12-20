@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aroma & Oven Food Ordering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER / LOGO -->
+  <header class="header">
+    <img src="images/logo.png" alt="Logo" class="logo" />
+  </header>
+
+  <!-- HORIZONTAL SCROLL BANNERS -->
+  <section class="banner-section">
+    <div class="banner-scroll">
+      <img src="images/1.png" onclick="openBannerViewer(0)"/>
+      <img src="images/2.png" onclick="openBannerViewer(1)"/>
+      <img src="images/3.png" onclick="openBannerViewer(2)"/>
+      <img src="images/4.png" onclick="openBannerViewer(3)"/>
+      <img src="images/5.png" onclick="openBannerViewer(4)"/>
+      <img src="images/6.png" onclick="openBannerViewer(5)"/>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <main>
+    <h2 class="section-title">Menu</h2>
+    <section id="menu" class="menu-grid">
+      <!-- Menu items injected by JS -->
+    </section>
+  </main>
+
+  <!-- CART BAR -->
+  <div class="cart-bar" id="cartBar">
+    <span id="cartCount">0 items</span>
+    <span id="cartTotal">₹0</span>
+    <button onclick="openCart()">View Cart</button>
+  </div>
+
+  <!-- CART MODAL -->
+  <div class="overlay" id="cartOverlay">
+    <div class="cart-modal">
+      <h3>Your Cart</h3>
+
+      <div id="cartItems"></div>
+
+      <div class="cart-summary">
+        <span>Total:</span>
+        <span id="checkoutTotal">₹0</span>
+      </div>
+
+      <button class="primary-btn" onclick="openCheckout()">Place Order</button>
+      <button class="secondary-btn" onclick="closeCart()">Close</button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <div class="overlay" id="checkoutOverlay">
+    <div class="checkout-modal">
+      <h3>Customer Details</h3>
+
+      <input type="text" id="custName" placeholder="Your Name" />
+      <input type="tel" id="custPhone" placeholder="Phone Number" />
+      <textarea id="custAddress" placeholder="Delivery Address"></textarea>
+
+      <button class="primary-btn" onclick="placeOrder()">Confirm Order</button>
+      <button class="secondary-btn" onclick="closeCheckout()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- THANK YOU MESSAGE -->
+  <div class="overlay" id="thankyouOverlay">
+    <div class="thankyou-modal">
+      <h2>Thank you for ordering! 🎉</h2>
+      <p>
+        We will confirm with you on the given number
+        when we have accepted your order.
+      </p>
+      <button class="primary-btn" onclick="closeThankYou()">Close</button>
+    </div>
+  </div>
+
+  <!-- PREFERENCES MODAL -->
+  <div class="overlay" id="prefOverlay">
+    <div class="pref-modal">
+      <h3>Choose Preferences</h3>
+
+      <label><input type="checkbox" value="Spicy" /> Spicy</label>
+      <label><input type="checkbox" value="Non Spicy" /> Non Spicy</label>
+
+      <div class="pref-actions">
+        <button class="primary-btn" onclick="confirmPreferences()">Done</button>
+        <button class="secondary-btn" onclick="cancelPreferences()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+<!-- BANNER LIGHTBOX -->
+<div class="overlay" id="bannerOverlay">
+  <div class="backdrop" onclick="closeBannerViewer()"></div>
+
+  <div class="banner-viewer">
+    <button class="nav-btn left" onclick="prevBanner()">❮</button>
+
+    <img id="bannerViewerImg" src="" />
+
+    <button class="nav-btn right" onclick="nextBanner()">❯</button>
+    <button class="close-btn" onclick="closeBannerViewer()">✕</button>
+  </div>
+</div>
+
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
