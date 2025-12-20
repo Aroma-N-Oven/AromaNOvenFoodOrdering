@@ -593,7 +593,7 @@ function closeCheckout() {
 /***********************
  PLACE ORDER
 ***********************/
-function placeOrder() {
+async function placeOrder() {
   const name = document.getElementById("custName").value.trim();
   const phone = document.getElementById("custPhone").value.trim();
   const address = document.getElementById("custAddress").value.trim();
@@ -601,6 +601,28 @@ function placeOrder() {
   if (!name || !phone || cart.length === 0) {
     alert("Please fill details and add items.");
     return;
+  }
+
+  const order = {
+    name,
+    phone,
+    address,
+    items: cart.map(i => ({
+      name: i.name,
+      price: i.price,
+      qty: i.qty,
+      preferences: i.preferences
+    })),
+    total: cart.reduce((s, i) => s + i.price * i.qty, 0),
+    status: "PENDING",
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  };
+
+  try {
+    await db.collection("orders").add(order);
+  } catch (err) {
+    alert("Order failed. Try again.");
+    console.error(err);
   }
 
   let message = `*New Food Order*%0A%0A`;
