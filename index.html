@@ -114,6 +114,24 @@
   </div>
 </div>
 
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyC6GZjfXazxT4wwFfqJmL0vZAj8AV-lXTQ",
+    authDomain: "aromanovenorders.firebaseapp.com",
+    projectId: "aromanovenorders",
+    storageBucket: "aromanovenorders.firebasestorage.app",
+    messagingSenderId: "851946449602",
+    appId: "1:851946449602:web:3d74ce1fbcc22a3cd1695b"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
 
   <!-- JS -->
   <script src="script.js"></script>
