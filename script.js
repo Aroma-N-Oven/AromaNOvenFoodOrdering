@@ -599,7 +599,12 @@ async function placeOrder() {
   const address = document.getElementById("custAddress").value.trim();
 
   if (!name || !phone || cart.length === 0) {
-    alert("Please fill details and add items.");
+    alert("Please fill all details and add items.");
+    return;
+  }
+
+  if (!isValidPhone(phone)) {
+    alert("Please enter a valid Indian mobile number.");
     return;
   }
 
@@ -651,6 +656,16 @@ async function placeOrder() {
   updateCartBar();
   closeCheckout();
   showThankYou();
+}
+
+function isValidPhone(phone) {
+  // Remove spaces and dashes
+  phone = phone.replace(/[\s-]/g, "");
+
+  // Indian mobile number regex
+  const regex = /^(?:\+91|91)?[6-9]\d{9}$/;
+
+  return regex.test(phone);
 }
 
 /***********************

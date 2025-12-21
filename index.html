@@ -65,7 +65,13 @@
       <h3>Customer Details</h3>
 
       <input type="text" id="custName" placeholder="Your Name" />
-      <input type="tel" id="custPhone" placeholder="Phone Number" />
+      <input
+        type="tel"
+        id="custPhone"
+        placeholder="Phone Number"
+        pattern="[0-9+ ]*"
+        inputmode="numeric"
+      />
       <textarea id="custAddress" placeholder="Delivery Address"></textarea>
 
       <button class="primary-btn" onclick="placeOrder()">Confirm Order</button>
