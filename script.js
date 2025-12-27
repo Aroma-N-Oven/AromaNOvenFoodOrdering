@@ -218,7 +218,7 @@ const menuData = [
       {
         id: 27,
         name: "Vanilla Chocolate Eclair (6 pcs.)",
-        price: 500,
+        price: 600,
         image: "images/eclair.jpg",
         prefs: false
       },
@@ -241,13 +241,6 @@ const menuData = [
         name: "Chocolate Castella Cake",
         price: 650,
         image: "images/choco castella.jpeg",
-        prefs: false
-      },
-      {
-        id: 31,
-        name: "Fudgy Chocolate Cake (7-inch cake)",
-        price: 700,
-        image: "images/choco cake fudgy.jpg",
         prefs: false
       },
       {
